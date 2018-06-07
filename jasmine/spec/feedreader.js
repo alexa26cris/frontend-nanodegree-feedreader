@@ -93,7 +93,14 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          */
          beforeEach(function(done) {
-           loadFeed(0, function() {
+             loadFeed(0, function(){
+          //load old feed variable
+
+             loadFeed(1, function(){
+           //load new feed  variable
+            done();
+        });
+      });
              prevFeed = $('.feed').html();
              done();
            });
