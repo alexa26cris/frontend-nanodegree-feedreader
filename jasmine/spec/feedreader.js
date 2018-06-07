@@ -92,29 +92,25 @@ $(function() {
         /* test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          */
-         beforeEach(function(done) {
-             loadFeed(0, function(){
-          //load old feed variable
-
-             loadFeed(1, function(){
+         beforeEach((done)=> {
+             loadFeed(0, function() {
+          //load previous feed variable
+             prevFeed = $('.feed').html();
+             
+              loadFeed(1, function() {
            //load new feed  variable
+              newFeed = $('.feed').html();
             done();
         });
       });
-             prevFeed = $('.feed').html();
-             done();
-           });
-         });
+    });
         /* compare the two feed screens for differences
          * to make sure that content changes when new feed is loaded
          */
-        it('content changes with new feed', function(done) {
-          loadFeed(1, function() {
-            newFeed = $('.feed').html();
+        it('content changes with new feed', function() {
             expect(prevFeed).not.toBe(newFeed);
             done();
           });
         });
-      });
 
 }());
