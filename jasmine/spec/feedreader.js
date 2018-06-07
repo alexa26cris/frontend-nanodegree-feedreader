@@ -107,7 +107,7 @@ $(function() {
         /* compare the two feed screens for differences
          * to make sure that content changes when new feed is loaded
          */
-        it('content changes with new feed', function() {
+        it('content changes with new feed', function(done) {
             expect(prevFeed).not.toBe(newFeed);
             done();
           });
